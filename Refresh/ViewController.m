@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "RefreshManager/RefreshManager.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //开始刷新
+    [RefreshManager refreshNormalWithBlockForViewController:self ofHeaderOrFooter:HeaderRefresh autoRefreshFooter:YES refreshingBlock:^{
+        
+    }];
+    
+    //结束刷新
+    [RefreshManager endRefreshForViewController:self ofHeaderOrFooter:HeaderRefresh];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
